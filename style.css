@@ -62,24 +62,35 @@ body {
 /* HERO */
 .hero {
     height: 90vh;
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(0,0,0,0.25),
-            rgba(0,0,0,0.55)
-        ),
-        url("images/banner.jpg");
+    background-image: url("./images/banner.jpg");
     background-size: cover;
     background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    position: relative;
 }
 
+/* SOFT DARK GRADIENT ONLY AT BOTTOM */
+.hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 35%;
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.55),
+        rgba(0,0,0,0)
+    );
+}
+
+/* Keep text above gradient */
 .hero-content {
-    max-width: 800px;
-    padding: 20px;
+    position: relative;
+    z-index: 2;
 }
 
 .hero h1 {
@@ -225,3 +236,4 @@ footer {
         display: flex;
     }
 }
+
