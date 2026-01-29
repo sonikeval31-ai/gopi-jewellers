@@ -62,7 +62,7 @@ body {
 /* HERO */
 .hero {
     height: 90vh;
-    background-image: url("./images/gold1.jpg");
+    background-image: url("./images/banner.jpg");
     background-size: cover;
     background-position: center;
     display: flex;
@@ -236,5 +236,6 @@ footer {
         display: flex;
     }
 }
+
 
 
