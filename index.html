@@ -2,62 +2,128 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Gopi Jewellers</title>
+    <title>Gopi Jewellers | Premium Gold Jewellery</title>
+
+    <!-- Luxury Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="nav-top">
+        <div class="logo">Gopi Jewellers</div>
+
+        <!-- Hamburger -->
+        <div class="hamburger" onclick="toggleMenu()">
+            ☰
+        </div>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="#home" onclick="closeMenu()">Home</a></li>
+        <li><a href="#collections" onclick="closeMenu()">Collections</a></li>
+        <li><a href="#about" onclick="closeMenu()">About</a></li>
+        <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+    </ul>
+</nav>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>શુદ્ધતા • વિશ્વાસ • પરંપરા</h1>
+        <p>Premium Gold Jewellery</p>
+        <a href="#contact" class="hero-btn">Visit Our Store</a>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <h2>About Gopi Jewellers</h2>
+    <p>
+        Gopi Jewellers, Botad is a trusted name in gold jewellery.
+        We offer BIS hallmarked gold, transparent pricing and
+        timeless designs crafted with perfection.
+    </p>
+</section>
+
+<!-- SLIDER / COLLECTIONS -->
+<section id="collections">
+    <h2>Our Collections</h2>
+
+    <div class="slider">
+        <button class="arrow left" onclick="prevSlide()">&#10094;</button>
+
+        <div class="slides">
+            <img src="images/gold1.jpg">
+            <img src="images/gold2.jpg">
+            <img src="images/gold3.jpg">
+            <img src="images/gold4.jpg">
+            <img src="images/gold5.jpg">
+            <img src="images/gold6.jpg">
+        </div>
+
+        <button class="arrow right" onclick="nextSlide()">&#10095;</button>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+    <h2>Visit Our Store</h2>
+    <p>📍 Botad</p>
+    <p>📞 1234567890</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    © 2026 Gopi Jewellers. All Rights Reserved.
+</footer>
+
+<!-- WHATSAPP -->
 <a href="https://wa.me/911234567890" class="whatsapp" target="_blank">
     WhatsApp
 </a>
-<body>
 
-    <!-- HEADER -->
-    <header>
-        <h1>Gopi Jewellers</h1>
-        <p>Pure Gold • Trusted Since Years</p>
-    </header>
+<!-- SLIDER SCRIPT (WORKING) -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
-    <!-- ABOUT -->
-    <section>
-        <h2>About Us</h2>
-        <p>
-            Gopi Jewellers is a trusted gold jewellery shop in Botad.
-            We offer pure gold jewellery with beautiful designs and honest pricing.
-        </p>
-    </section>
+    let index = 0;
+    const slides = document.querySelector(".slides");
+    const total = slides.children.length;
 
-    <!-- JEWELLERY -->
-    <section>
-        <h2>Our Jewellery</h2>
-<div class="gallery">
-    <div class="item">
-        <img src="images/gold1.jpg">
-        <p>Gold Necklace</p>
-    </div>
-    <div class="item">
-        <img src="images/gold2.jpg">
-        <p>Gold Bangles</p>
-    </div>
-    <div class="item">
-        <img src="images/gold3.jpg">
-        <p>Bridal Jewellery</p>
-    </div>
-</div>
-    </section>
+    function showSlide() {
+        slides.style.transform = `translateX(-${index * 100}%)`;
+    }
 
-    <!-- CONTACT -->
-    <section>
-        <h2>Contact Us</h2>
-        <p>📍 Botad</p>
-        <p>📞 1234567890</p>
-        <a href="https://wa.me/911234567890" target="_blank">
-            Chat on WhatsApp
-        </a>
-    </section>
+    window.nextSlide = function () {
+        index = (index + 1) % total;
+        showSlide();
+    }
 
-    <!-- FOOTER -->
-    <footer>
-        <p>© 2026 Gopi Jewellers. All Rights Reserved.</p>
-    </footer>
+    window.prevSlide = function () {
+        index = (index - 1 + total) % total;
+        showSlide();
+    };
+
+    setInterval(() => {
+        nextSlide();
+    }, 3500);
+
+});
+</script>
+<script>
+function toggleMenu() {
+    document.querySelector(".nav-links").classList.toggle("show");
+}
+
+function closeMenu() {
+    document.querySelector(".nav-links").classList.remove("show");
+}
+</script>
 
 </body>
 </html>
